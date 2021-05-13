@@ -2,20 +2,19 @@ CREATE DATABASE ENCOMENDADEBOLOS
 
 CREATE TABLE BOLEIRO(
 ID_boleiro INT PRIMARY KEY,
-ID_LOJA INT FOREIGN KEY REFERENCES LOJA,
-nome_boleiro VARCHAR(255),
-email_boleiro VARCHAR(50),
-CPF VARCHAR(11),
-data_nasc DATE,
-tel_boleiro VARCHAR(11),
-logradouro_boleiro VARCHAR(255),
-numero_boleiro VARCHAR(5),
-CEP_bairro VARCHAR(8),
-bairro_boleiro VARCHAR(255),
-cidade_boleiro VARCHAR(255),
-uf_boleiro VARCHAR(2),
-login_us VARCHAR (50),
-senha VARCHAR (50)
+nome_boleiro VARCHAR(255) NOT NULL,
+email_boleiro VARCHAR(50) NOT NULL,
+CPF VARCHAR(11) NOT NULL,
+data_nasc DATE NOT NULL,
+tel_boleiro VARCHAR(11) NOT NULL,
+logradouro_boleiro VARCHAR(255) NOT NULL,
+numero_boleiro VARCHAR(5) NOT NULL,
+CEP_bairro VARCHAR(8) NOT NULL,
+bairro_boleiro VARCHAR(255) NOT NULL,
+cidade_boleiro VARCHAR(255) NOT NULL,
+uf_boleiro VARCHAR(2) NOT NULL,
+login_us VARCHAR (50) NOT NULL,
+senha VARCHAR (50) NOT NULL
 );
 
 INSERT INTO BOLEIRO (ID_boleiro,nome_boleiro, email_boleiro, CPF, data_nasc, tel_boleiro, logradouro_boleiro, numero_boleiro, CEP_bairro, bairro_boleiro, cidade_boleiro, uf_boleiro, login_us, senha)
@@ -37,53 +36,51 @@ VALUES (5,'Osvaldo Henry Lima','osvaldohenrylima_@suzano.com.br','87508138899','
 CREATE TABLE LOJA(
 ID_LOJA INT PRIMARY KEY,
 ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO,
-nome_loja VARCHAR(50),
-descricao_loja VARCHAR(100),
-nm_arquivo varchar(1000),
-vb_imagem varbinary(max) 
+nome_loja VARCHAR(50) NOT NULL,
+descricao_loja VARCHAR(100) NULL,
+foto_loja VARCHAR (300) NULL 
 );
 
-SELECT*FROM LOJA
+/*SELECT*FROM LOJA
 DELETE FROM LOJA
-
-ALTER TABLE LOJA
-ADD vb_imagem varbinary(max) 
+ALTER TABLE LOJA */
 
 
-INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja,nm_arquivo, vb_imagem)
+INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja)
 VALUES (1,1,'Doces Caseiros','Vendemos bolos simples e caseiros feitos com amor!')
 
-INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja,nm_arquivo, vb_imagem)
+INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja)
 VALUES (2,2,'Bolos da Vovó','Delicie-se das melhores receitas da vovó.')
 
-INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja,nm_arquivo, vb_imagem)
+INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja)
 VALUES (3,3,'Doces & Bolos','doces e bolos gostosos para voce se apaixonar!')
 
-INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja,nm_arquivo, vb_imagem)
+INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja)
 VALUES (4,4,'Ju Cakes','Bolos para festas e eventos.')
 
-INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja,nm_arquivo, vb_imagem)
+INSERT INTO LOJA (ID_LOJA, ID_boleiro, nome_loja, descricao_loja)
 VALUES (5,5,'Bolo com Café','Gostnho de felicidade com bolo e café!');
 
 
 CREATE TABLE CLIENTE(
-ID_cliente INT PRIMARY KEY ,
-nome_cliente VARCHAR(255),
-email_cliente VARCHAR(50),
-CPF_cliente VARCHAR(11),
-tel_cliente VARCHAR(11),
-logradouro_cliente VARCHAR(255),
-numero_cliente VARCHAR(5),
-CEP_cliente VARCHAR(8),
-bairro_cliente VARCHAR(255),
-cidade_cliente VARCHAR(255),
-UF_cliente VARCHAR(2),
-login_us VARCHAR (50),
-senha VARCHAR (50)
+ID_cliente INT PRIMARY KEY,
+nome_cliente VARCHAR(255) NOT NULL,
+email_cliente VARCHAR(50) NOT NULL,
+CPF_cliente VARCHAR(11) NOT NULL,
+tel_cliente VARCHAR(11) NOT NULL,
+logradouro_cliente VARCHAR(255) NOT NULL,
+numero_cliente VARCHAR(5) NOT NULL,
+CEP_cliente VARCHAR(8) NOT NULL,
+bairro_cliente VARCHAR(255) NOT NULL,
+cidade_cliente VARCHAR(255) NOT NULL,
+UF_cliente VARCHAR(2) NOT NULL,
+login_us VARCHAR (50) NOT NULL,
+senha VARCHAR (50) NOT NULL,
+foto_cliente VARCHAR (300) NULL
 );
 
-SELECT*FROM CLIENTE
-DELETE FROM CLIENTE
+/*SELECT*FROM CLIENTE
+DELETE FROM CLIENTE*/
 
 INSERT INTO CLIENTE(ID_cliente, nome_cliente ,email_cliente,CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
 VALUES (1,'Levi Daniel Elias Teixeira','llevidanieleliasteixeira@guiamaritimo.com.br','61284401855','11982867976','Rua São Paulo','225','06820270','Jardim Emílio Carlos','Embu das Artes','SP','Levi','cpiDXpP8Y4');
@@ -107,8 +104,8 @@ ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO,
 ID_cliente INT FOREIGN KEY REFERENCES CLIENTE
 );
 
-SELECT*FROM FAVORITOS
-DELETE FROM FAVORITOS
+/*SELECT*FROM FAVORITOS
+DELETE FROM FAVORITOS*/
 
 INSERT INTO FAVORITOS (ID_favoritos, ID_boleiro, ID_cliente)
 VALUES (1,2,1)
@@ -130,7 +127,7 @@ CREATE TABLE PEDIDO(
 ID_pedido INT PRIMARY KEY,
 ID_cliente INT FOREIGN KEY REFERENCES CLIENTE,
 ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO,
-obs_pedido VARCHAR (255),
+obs_pedido VARCHAR (255) NULL,
 data_pedido DATE,
 total_pedido DECIMAL(6,2),
 porcentagem_desconto INTEGER,
@@ -138,8 +135,8 @@ valor_desconto DECIMAL(6,2),
 total_desconto DECIMAL(6,2)
 );
 
-SELECT*FROM PEDIDO
-DELETE FROM PEDIDO
+/*SELECT*FROM PEDIDO
+DELETE FROM PEDIDO*/
 
 INSERT INTO PEDIDO (ID_pedido, ID_cliente, ID_boleiro, obs_pedido,data_pedido,total_pedido,porcentagem_desconto,valor_desconto,total_desconto)
 VALUES (1,2,1,'Não colocar as ameixas dentro do bolo','2021-03-01',50.00,null,null,50.00)
@@ -159,38 +156,37 @@ VALUES (5,4,5,'Colocar pouco açucar','2021-03-01',30.00,50,15.00,15.00);
 
 CREATE TABLE VENDA(
 ID_venda INT PRIMARY KEY,
+ID_pedido INT FOREIGN KEY REFERENCES PEDIDO,
 ID_cliente INT FOREIGN KEY REFERENCES CLIENTE,
-ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO,
-total_recebido DECIMAL(6,2),
-troco DECIMAL(6,2)
+ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO
 );
 
-SELECT*FROM VENDA
-DELETE FROM VENDA
+/*SELECT*FROM VENDA
+DELETE FROM VENDA */
 
-INSERT INTO VENDA (ID_venda,ID_cliente,ID_boleiro,total_recebido,troco)
-VALUES (1,2,1,50.00, null)
+INSERT INTO VENDA (ID_venda,ID_pedido, ID_cliente,ID_boleiro)
+VALUES (1,1,2,1)
 
-INSERT INTO VENDA (ID_venda,ID_cliente,ID_boleiro,total_recebido,troco)
-VALUES (2,1,2,90.00, 10.00)
+INSERT INTO VENDA (ID_venda,ID_pedido, ID_cliente,ID_boleiro)
+VALUES (2,2,1,2)
 
-INSERT INTO VENDA (ID_venda,ID_cliente,ID_boleiro,total_recebido,troco)
-VALUES (3,4,3,35.00,15.00)
+INSERT INTO VENDA (ID_venda,ID_pedido, ID_cliente,ID_boleiro)
+VALUES (3,3,4,3)
 
-INSERT INTO VENDA (ID_venda,ID_cliente,ID_boleiro,total_recebido,troco)
-VALUES (4,1,4,200.00,null)
+INSERT INTO VENDA (ID_venda,ID_pedido,ID_cliente,ID_boleiro)
+VALUES (4,4,1,4)
 
-INSERT INTO VENDA (ID_venda,ID_cliente,ID_boleiro,total_recebido,troco)
-VALUES (5,4,5,15.00,5.00)
+INSERT INTO VENDA (ID_venda, ID_pedido, ID_cliente,ID_boleiro)
+VALUES (5,5,4,5)
 
 
 CREATE TABLE FORMA_PAGTO(
 ID_forma_pagto INT PRIMARY KEY,
-nome_forma_pagto VARCHAR (20)
+nome_forma_pagto VARCHAR (20) NOT NULL
 );
 
-SELECT*FROM FORMA_PAGTO
-DELETE FROM FORMA_PAGTO
+/*SELECT*FROM FORMA_PAGTO
+DELETE FROM FORMA_PAGTO*/
 
 INSERT INTO FORMA_PAGTO (ID_forma_pagto, nome_forma_pagto)
 VALUES (1,'Dinheiro')
@@ -200,52 +196,56 @@ INSERT INTO FORMA_PAGTO (ID_forma_pagto, nome_forma_pagto)
 VALUES (3,'Pix')
 
 CREATE TABLE VENDA_FORMAPAGTO(
+ID_venda_formapagto INT PRIMARY KEY,
 ID_venda INT FOREIGN KEY REFERENCES VENDA,
 ID_forma_pagto INT FOREIGN KEY REFERENCES FORMA_PAGTO,
-valor_total  DECIMAL(6,2)
+valor_total  DECIMAL(6,2),
+total_recebido DECIMAL(6,2),
+troco DECIMAL(6,2) 
 );
 
-SELECT*FROM VENDA_FORMAPAGTO
+/*SELECT*FROM VENDA_FORMAPAGTO
 DELETE FROM VENDA_FORMAPAGTO
+DROP TABLE VENDA_FORMAPAGTO*/
 
-INSERT INTO VENDA_FORMAPAGTO (ID_venda, ID_forma_pagto, valor_total)
-VALUES (1,2,50.00)
-INSERT INTO VENDA_FORMAPAGTO (ID_venda, ID_forma_pagto, valor_total)
-VALUES (2,1,100.00)
-INSERT INTO VENDA_FORMAPAGTO (ID_venda, ID_forma_pagto, valor_total)
-VALUES (3,1,70.00)
-INSERT INTO VENDA_FORMAPAGTO (ID_venda, ID_forma_pagto, valor_total)
-VALUES (4,3,200.00)
-INSERT INTO VENDA_FORMAPAGTO (ID_venda,ID_forma_pagto,valor_total)
-VALUES (5,2,30.00)
+INSERT INTO VENDA_FORMAPAGTO (ID_venda_formapagto, ID_venda, ID_forma_pagto, valor_total, total_recebido,troco)
+VALUES (1,1,2,50.00, 50.00, NULL)
+INSERT INTO VENDA_FORMAPAGTO (ID_venda_formapagto, ID_venda, ID_forma_pagto, valor_total, total_recebido,troco)
+VALUES (2,2,1,100.00, 90.00, 10.00)
+INSERT INTO VENDA_FORMAPAGTO (ID_venda_formapagto, ID_venda, ID_forma_pagto, valor_total, total_recebido,troco)
+VALUES (3,3,1,70.00, 35.00,15.00)
+INSERT INTO VENDA_FORMAPAGTO (ID_venda_formapagto, ID_venda, ID_forma_pagto, valor_total, total_recebido,troco)
+VALUES (4,4,3,200.00, 200.00, NULL)
+INSERT INTO VENDA_FORMAPAGTO (ID_venda_formapagto, ID_venda,ID_forma_pagto,valor_total, total_recebido,troco)
+VALUES (5,5,2,30.00, 15.00,5.00)
 
 
 CREATE TABLE PRODUTO(
-ID_loja INT FOREIGN KEY REFERENCES LOJA,
 ID_produto INT PRIMARY KEY,
-nome_produto VARCHAR(50),
-descricao_produto VARCHAR(255),
-foto_produto INT NULL,
-valor_produto DECIMAL (6,2)
+ID_loja INT FOREIGN KEY REFERENCES LOJA,
+nome_produto VARCHAR(50) NOT NULL,
+descricao_produto VARCHAR(255) NOT NULL,
+valor_produto DECIMAL (6,2) NOT NULL,
+foto_produto VARCHAR (300) 
 );
 
-SELECT*FROM PRODUTO
+/*SELECT*FROM PRODUTO
 DELETE FROM PRODUTO
-DROP TABLE PRODUTO
+DROP TABLE PRODUTO*/
 
-INSERT INTO PRODUTO (ID_loja,ID_produto,nome_produto,descricao_produto,valor_produto)
+INSERT INTO PRODUTO (ID_produto,ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (1,1,'Bolo p/ Festa','Tamanho Grande',100.00) 
 
-INSERT INTO PRODUTO (ID_loja,ID_produto,nome_produto,descricao_produto,valor_produto)
+INSERT INTO PRODUTO (ID_produto,ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (2,2,'Bolo Simples','Tamanho Pequeno',30.00) 
 
-INSERT INTO PRODUTO (ID_loja,ID_produto,nome_produto,descricao_produto,valor_produto)
+INSERT INTO PRODUTO (ID_produto, ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (3,3,'Chocodelicia','Tamanho Médio',50.00) 
 
-INSERT INTO PRODUTO (ID_loja,ID_produto,nome_produto,descricao_produto,valor_produto)
+INSERT INTO PRODUTO (ID_produto,ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (4,4,'fubá Cremoso','Tamanho Médio',200.00) 
 
-INSERT INTO PRODUTO (ID_loja,ID_produto,nome_produto,descricao_produto,valor_produto)
+INSERT INTO PRODUTO (ID_produto,ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (5,5,'Bolo de Sal','Tamanho Médio',70.00) 
 
 
@@ -253,13 +253,13 @@ CREATE TABLE ITEM_PRODUTO(
 ID_item_prod INT PRIMARY KEY,
 ID_produto INT FOREIGN KEY REFERENCES PRODUTO,
 ID_pedido INT FOREIGN KEY REFERENCES PEDIDO,
-quantidade_prod INT ,
+quantidade_prod INT,
 valor_unitario DECIMAL(6,2),
 valor_total DECIMAL(6,2)
 );
 
-SELECT*FROM ITEM_PRODUTO
-DELETE FROM ITEM_PRODUTO
+/*SELECT*FROM ITEM_PRODUTO
+DELETE FROM ITEM_PRODUTO*/
 
 INSERT INTO ITEM_PRODUTO (ID_item_prod,ID_produto,ID_pedido,quantidade_prod,valor_unitario,valor_total)
 VALUES (1,1,1,2,100.00,200.00) 
@@ -280,53 +280,51 @@ VALUES (5,5,5,2,70.00,140.00)
 CREATE TABLE FALE_CONOSCO_CLIENTE(
 ID_fale_conosco INT PRIMARY KEY,
 ID_cliente INT FOREIGN KEY REFERENCES CLIENTE,
-email_fale_conosco VARCHAR(50),
-tel_fale_conosco VARCHAR(11),
-mensagem_fale_conosco VARCHAR (500),
-foto INT null
+email_fale_conoscoc VARCHAR(50) NOT NULL,
+tel_fale_conoscoc VARCHAR(11) NOT NULL,
+mensagem_fale_conoscoc VARCHAR (500) NOT NULL,
 );
 
-SELECT*FROM FALE_CONOSCO_CLIENTE
-DELETE FROM FALE_CONOSCO_CLIENTE
+/*SELECT*FROM FALE_CONOSCO_CLIENTE
+DELETE FROM FALE_CONOSCO_CLIENTE*/
 
-INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conoscoc, tel_fale_conoscoc, mensagem_fale_conoscoc)
 VALUES (1,1,'juquinha@gmail.com','11994573560','Não consigo favoritar produtos')
 
-INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conoscoc, tel_fale_conoscoc, mensagem_fale_conoscoc)
 VALUES (2,2,'mariazinha@gmail.com','11982867976','Não consigo excluir minha foto')
 
-INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conoscoc, tel_fale_conoscoc, mensagem_fale_conoscoc)
 VALUES (3,3,'leo@gmail.com','11983401223','O app trava muito')
 
-INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conoscoc, tel_fale_conoscoc, mensagem_fale_conoscoc)
 VALUES (4,4,'jhon@gmail.com','13981367847','Exelente aplicativo')
 
-INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_CLIENTE (ID_fale_conosco,ID_cliente, email_fale_conoscoc, tel_fale_conoscoc, mensagem_fale_conoscoc)
 VALUES (5,5,'jujupepe@gmail.com','19995106391','Sempre da erro quando eu pesquiso um boleiro na barra de pesquisa')
 
 CREATE TABLE FALE_CONOSCO_BOLEIRO(
 ID_fale_conosco INT PRIMARY KEY,
 ID_boleiro INT FOREIGN KEY REFERENCES BOLEIRO,
-email_fale_conosco VARCHAR(50),
-tel_fale_conosco VARCHAR(11),
-mensagem_fale_conosco VARCHAR (500),
-foto INT null
+email_fale_conoscob VARCHAR(50) NOT NULL,
+tel_fale_conoscob VARCHAR(11) NOT NULL,
+mensagem_fale_conoscob VARCHAR (500) NOT NULL,
 );
 
-SELECT*FROM FALE_CONOSCO_BOLEIRO
-DELETE FROM FALE_CONOSCO_BOLEIRO
+/*SELECT*FROM FALE_CONOSCO_BOLEIRO
+DELETE FROM FALE_CONOSCO_BOLEIRO*/
 
-INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conoscob, tel_fale_conoscob, mensagem_fale_conoscob)
 VALUES (1,1,'llevidanieleliasteixeira@guiamaritimo.com.br','11994573560','Não consigo cadastrar produtos')
 
-INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conoscob, tel_fale_conoscob, mensagem_fale_conoscob)
 VALUES (2,2,'rebecaisisvieira-88@fabianocosta.com.br','11982867976','Não consigo excluir produtos')
 
-INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conoscob, tel_fale_conoscob, mensagem_fale_conoscob)
 VALUES (3,3,'benjaminvictornogueira-72@cbsdobrasil.com.br','11983401223','O app trava muito')
 
-INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conoscob, tel_fale_conoscob, mensagem_fale_conoscob)
 VALUES (4,4,'fabiojuanthalesferreira..fabioferreira@iedi.com.br','13981367847','Exelente aplicativo')
 
-INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conosco, tel_fale_conosco, mensagem_fale_conosco)
+INSERT INTO FALE_CONOSCO_BOLEIRO (ID_fale_conosco,ID_boleiro, email_fale_conoscob, tel_fale_conoscob, mensagem_fale_conoscob)
 VALUES (5,5,'osvaldohenrylima_@suzano.com.br','19995106391','Sempre da erro quando eu pesquiso um produto na barra de pesquisa')
