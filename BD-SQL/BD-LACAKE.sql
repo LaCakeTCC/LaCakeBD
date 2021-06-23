@@ -217,7 +217,6 @@ VALUES (4,3,200.00, 200.00, NULL)
 INSERT INTO VENDA_FORMAPAGTO (ID_venda,ID_forma_pagto,valor_total, total_recebido,troco)
 VALUES (5,2,30.00, 15.00,5.00)
 
-
 CREATE TABLE PRODUTO(
 ID_produto INT PRIMARY KEY IDENTITY (1,1),
 ID_loja INT FOREIGN KEY REFERENCES LOJA,
@@ -246,6 +245,38 @@ VALUES (4,'fubá Cremoso','Tamanho Médio',200.00)
 INSERT INTO PRODUTO (ID_loja,nome_produto,descricao_produto,valor_produto)
 VALUES (5,'Bolo de Sal','Tamanho Médio',70.00) 
 
+CREATE TABLE CATEGORIA(
+ID_categoria INT PRIMARY KEY IDENTITY (1,1),
+nome_categoria VARCHAR(50) NOT NULL
+);
+
+/*SELECT*FROM CATEGORIA
+DELETE FROM CATEGORIA
+DROP TABLE CATEGORIA*/
+
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo de festa')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo simples')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo caseiro')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo de pote ')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo redondo')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo retangular')
+INSERT INTO CATEGORIA (nome_categoria)
+VALUES ('Bolo com cobertura')
+
+CREATE TABLE PRODUTO_CATEGORIA(
+ID_categoria INT FOREIGN KEY REFERENCES CATEGORIA,
+ID_produto INT FOREIGN KEY REFERENCES PRODUTO
+);
+
+/*SELECT*FROM PRODUTO_CATEGORIA
+DELETE FROM PRODUTO_CATEGORIA
+DROP TABLE PRODUTO_CATEGORIA*/
 
 CREATE TABLE ITEM_PRODUTO(
 ID_item_prod INT PRIMARY KEY IDENTITY (1,1),
@@ -273,7 +304,6 @@ VALUES (4,4,1,200.00,200.00)
 
 INSERT INTO ITEM_PRODUTO (ID_produto,ID_pedido,quantidade_prod,valor_unitario,valor_total)
 VALUES (5,5,2,70.00,140.00) 
-
 
 CREATE TABLE FALE_CONOSCO_CLIENTE(
 ID_fale_conosco_cliente INT PRIMARY KEY IDENTITY (1,1),
