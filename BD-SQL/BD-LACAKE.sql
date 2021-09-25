@@ -95,7 +95,7 @@ INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, lograd
 VALUES ('Fábio Juan Thales Ferreira','fabiojuanthalesferreira..fabioferreira@iedi.com.br','18655339806','19995106391','Rua das Margaridas','494','13846222','Jardim Ipê Pinheiro','Mogi Guaçu','SP','Fábio ','123456');
 
 INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Osvaldo Henry Lima','osvaldohenrylima_@suzano.com.br','87508138899','18997149240','Rua Icaraí','589','16020490','Icaray','Araçatuba','SP','Osvaldo','123456');
+VALUES ('Osvaldo Henry Lima','os@gmail.com','87508138899','18997149240','Rua Icaraí','589','16020490','Icaray','Araçatuba','SP','Osvaldo','123456');
 
 
 CREATE TABLE FAVORITOS(
