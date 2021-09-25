@@ -83,19 +83,19 @@ foto_cliente VARCHAR (300) NULL
 DELETE FROM CLIENTE*/
 
 INSERT INTO CLIENTE(nome_cliente ,email_cliente,CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Levi Daniel Elias Teixeira','llevidanieleliasteixeira@guiamaritimo.com.br','61284401855','11982867976','Rua São Paulo','225','06820270','Jardim Emílio Carlos','Embu das Artes','SP','Levi','cpiDXpP8Y4');
+VALUES ('Levi Daniel Elias Teixeira','llevidanieleliasteixeira@guiamaritimo.com.br','61284401855','11982867976','Rua São Paulo','225','06820270','Jardim Emílio Carlos','Embu das Artes','SP','Levi','123456');
 
 INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Rebeca Isis Vieira','rebecaisisvieira-88@fabianocosta.com.br','69436303858','11983401223','Rua João de Souza Dias',' 989','04618917','Campo Belo','São Paulo','SP','Rebeca','w78a2Ythtx');
+VALUES ('Rebeca Isis Vieira','rebecaisisvieira-88@fabianocosta.com.br','69436303858','11983401223','Rua João de Souza Dias',' 989','04618917','Campo Belo','São Paulo','SP','Rebeca','123456');
 
 INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Benjamin Victor Nogueira','benjaminvictornogueira-72@cbsdobrasil.com.br','80481715894','13981367847','Rua Particular Maria Domingos Russo','758','11706215','Caiçara','Praia Grande','SP','Benjamin','mbQfkEmGmr');
+VALUES ('Benjamin Victor Nogueira','benjaminvictornogueira-72@cbsdobrasil.com.br','80481715894','13981367847','Rua Particular Maria Domingos Russo','758','11706215','Caiçara','Praia Grande','SP','Benjamin','123456');
 
 INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Fábio Juan Thales Ferreira','fabiojuanthalesferreira..fabioferreira@iedi.com.br','18655339806','19995106391','Rua das Margaridas','494','13846222','Jardim Ipê Pinheiro','Mogi Guaçu','SP','Fábio ','pou0QZWxwr');
+VALUES ('Fábio Juan Thales Ferreira','fabiojuanthalesferreira..fabioferreira@iedi.com.br','18655339806','19995106391','Rua das Margaridas','494','13846222','Jardim Ipê Pinheiro','Mogi Guaçu','SP','Fábio ','123456');
 
 INSERT INTO CLIENTE(nome_cliente,email_cliente, CPF_cliente, tel_cliente, logradouro_cliente, numero_cliente, CEP_cliente, bairro_cliente, cidade_cliente, UF_cliente, login_us, senha)
-VALUES ('Osvaldo Henry Lima','osvaldohenrylima_@suzano.com.br','87508138899','18997149240','Rua Icaraí','589','16020490','Icaray','Araçatuba','SP','Osvaldo','GPhGGra5EZ');
+VALUES ('Osvaldo Henry Lima','osvaldohenrylima_@suzano.com.br','87508138899','18997149240','Rua Icaraí','589','16020490','Icaray','Araçatuba','SP','Osvaldo','123456');
 
 
 CREATE TABLE FAVORITOS(
